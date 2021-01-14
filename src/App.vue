@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <h1>sdfsfksjflsf</h1>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
+  name: 'app', 
+  data(){
+    return {  
+      beers: []
+      }
+  },
+  mounted(){
+    this.getbeers();
+  },
+  methods: {
+    getbeers: function(){fetch('https://api.punkapi.com/v2/beers')
+    .then(res => res.json())
+    .then(beers => this.beers = beers)}
+
+  }, 
   components: {
-    HelloWorld
+
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
