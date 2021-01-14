@@ -1,8 +1,15 @@
-<template>
-  <h1>sdfsfksjflsf</h1>
+<template lang="html">
+  <div>
+    <h1>Brewdog Beers</h1>
+    <div>
+      <beer-list :beers='beers'></beer-list>
+    </div>
+  </div>
 </template>
 
 <script>
+import BeersList from './components/BeersList.vue';
+
 export default {
   name: 'app', 
   data(){
@@ -20,6 +27,8 @@ export default {
 
   }, 
   components: {
+    "beers-list": BeersList,
+
 
   }
 
