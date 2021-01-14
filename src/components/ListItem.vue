@@ -15,6 +15,7 @@ export default {
         handleClick(){
         eventBus.$emit('selected-beer', this.beer)
         }
+        
     }
 
 }

@@ -21,6 +21,8 @@ export default {
     name: "beer-detail",
     props: ["beer"], 
     methods: {
+      handleButtonClick(){
+            eventBus.$emit('favourite-beer', this.beer)}
 
     }
 
