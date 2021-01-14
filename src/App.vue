@@ -2,23 +2,29 @@
   <div>
     <h1>Brewdog Beers</h1>
     <div>
-      <beer-list :beers='beers'></beer-list>
+      <beers-list :beers='beers'></beers-list>
+      <beer-detail :beer="selectedBeer"></beer-detail>
     </div>
   </div>
 </template>
 
 <script>
+import { eventBus} from './main.js'
 import BeersList from './components/BeersList.vue';
+import BeerDetail from './components/BeerDetail.vue'
 
 export default {
   name: 'app', 
   data(){
     return {  
-      beers: []
+      beers: [],
+      selectedBeer: null
       }
   },
   mounted(){
-    this.getbeers();
+    this.getbeers()
+
+    eventBus.$on("selected-beer", (beer) => this.selectedBeer = beer)
   },
   methods: {
     getbeers: function(){fetch('https://api.punkapi.com/v2/beers')
@@ -28,6 +34,7 @@ export default {
   }, 
   components: {
     "beers-list": BeersList,
+    "beer-detail": BeerDetail
 
 
   }
